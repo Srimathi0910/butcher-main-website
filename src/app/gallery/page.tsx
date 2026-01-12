@@ -95,7 +95,7 @@ const Gallery: React.FC = () => {
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        <div className="flex flex-col sm:flex-row items-center gap-8 pt-20">
+        <div className="flex flex-col sm:flex-row  sm:gap-4 items-center gap-8 pt-20">
 
           {/* LEFT: Text */}
           <div className="w-full sm:w-1/2 text-center sm:text-center">
