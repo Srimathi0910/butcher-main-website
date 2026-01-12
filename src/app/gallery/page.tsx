@@ -5,7 +5,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { Merriweather } from "next/font/google";
 import Reveal from "../_components/animation/Reveal";
 import { gallery } from "./data";
-import { Cta } from"../_components";
+import { Cta } from "../_components";
 
 const merriweather = Merriweather({
   weight: ["400", "700", "900"],
@@ -95,30 +95,38 @@ const Gallery: React.FC = () => {
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
+        <div className="flex flex-col sm:flex-row items-center gap-8 pt-20">
 
-        <div className="w-full h-[60vh] sm:h-[80vh] relative top-4 overflow-hidden">
-          <img
-            src="/assets/gallery/gallery-main-1.png"
-            alt="Landing"
-            className="w-full h-full object-cover object-left sm:object-center"
-            draggable={false}
-          />
-
-          <div className="absolute inset-0 bg-black/40"></div>
-          {/* Title */}
-
-          <div className="absolute inset-0 flex items-center justify-center">
-
+          {/* LEFT: Text */}
+          <div className="w-full sm:w-1/2 text-center sm:text-left px-4">
             <h1
-              className={`${merriweather.className} text-[40px] sm:text-[56px] font-normal text-[#FFFFFF] text-center drop-shadow-[0_0_30px_rgba(151,3,3,0.4)]`}
+              className={`${merriweather.className} text-[40px] sm:text-[56px] font-normal text-[#5a0202]`}
             >
-              OUR PRODUCTS
+              Fresh Meat Collections
             </h1>
           </div>
 
+          {/* RIGHT: Image */}
+          <div className="w-full sm:w-7/8 h-[70vh] sm:h-[80vh] relative overflow-hidden">
+            <img
+              src="/assets/gallery/gallery-main-1.png"
+              alt="Fresh Meat Collection"
+              className="w-full  h-full object-cover"
+
+              draggable={false}
+            />
+          </div>
+
+
+          {/* <div className="absolute inset-0 bg-[#e8e4df]/10"></div> */}
+          {/* Title */}
         </div>
 
-        <div className="relative w-full max-w-[1400px] h-[400px] mt-24 mb-24 flex items-center justify-center ">
+
+
+
+
+        <div className="relative w-full max-w-[1400px] h-[400px] mt-34 mb-24 flex items-center justify-center ">
           {/* CARDS */}
           <div className="relative w-full flex justify-center items-center h-full" style={{ perspective: 2000 }}>
             {gallery.map((member, i) => (
@@ -183,7 +191,7 @@ const Gallery: React.FC = () => {
       </div>
       <Cta />
     </Reveal>
-    
+
 
   );
 };
