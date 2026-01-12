@@ -14,7 +14,8 @@ const Cta = () => {
     <section id='contact-us' className='container px-6 pb-12 lg:px-6'>
       <Reveal>
         <div className=' relative max-md:h-[350px] h-[570px] w-full'>
-          <Image src={ctaImage} fill alt='man selling meat' />
+          <video className='absolute inset-0 w-full h-full object-cover' src='/assets/cta/ctavideo.mp4' autoPlay loop muted
+                 playsInline/>
         </div>
       </Reveal>
       <div className='grid grid-cols-1 md:grid-cols-2 justify-between mt-12'>
