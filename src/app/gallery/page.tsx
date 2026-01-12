@@ -12,8 +12,6 @@ const merriweather = Merriweather({
   subsets: ["latin"],
 });
 
-
-
 const Gallery: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
@@ -61,16 +59,16 @@ const Gallery: React.FC = () => {
   const getCardStyle = (i: number): React.CSSProperties => {
     const length = gallery.length;
     const offset = (i - currentIndex + length) % length;
+
     const base: React.CSSProperties = {
       transformStyle: "preserve-3d",
       transition: "all 0.7s cubic-bezier(0.16,1,0.3,1)",
       pointerEvents: "auto",
-      touchAction: "manipulation",
     };
 
     switch (offset) {
       case 0:
-        return { ...base, transform: "translateX(0px) scale(1.15)", zIndex: 20 };
+        return { ...base, transform: "translateX(0) scale(1.15)", zIndex: 20 };
       case 1:
         return { ...base, transform: "translateX(200px) rotateY(-8deg) scale(0.95)", zIndex: 10 };
       case 2:
@@ -80,41 +78,36 @@ const Gallery: React.FC = () => {
       case length - 2:
         return { ...base, transform: "translateX(-400px) rotateY(15deg) scale(0.8)", zIndex: 5 };
       default:
-        return { ...base, transform: "scale(0.75)", opacity: 0, zIndex: 1, pointerEvents: "none" };
+        return { ...base, opacity: 0, scale: 0.75, pointerEvents: "none" };
     }
   };
-
-  // Arrow handlers
-  const prev = () => updateCarousel(currentIndex - 1);
-  const next = () => updateCarousel(currentIndex + 1);
 
   return (
     <Reveal>
       <div
-        className="relative flex flex-col items-center justify-center min-h-screen text-white overflow-hidden  select-none"
+        className="relative min-h-screen overflow-hidden select-none"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        <div className="flex flex-col sm:flex-row  items-center gap-8 pt-20">
+        {/* TOP SECTION */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-10 pt-16 sm:pt-20 px-4 sm:px-8 lg:px-16 max-w-[1400px] mx-auto">
 
-          {/* LEFT: Text */}
-          <div className="w-full sm:w-1/2 text-center sm:text-center">
-            <h1
-              className={`${merriweather.className} text-[32px] sm:text-[44px] lg:text-[56px] font-normal text-[#5a0202]`}
-            >
+          {/* TEXT */}
+          <div
+            className={`${merriweather.className} w-full sm:w-1/2 text-center sm:text-left`}
+          >
+            <h1 className="text-[32px] sm:text-[44px] lg:text-[56px] font-normal text-[#5a0202]">
               Fresh Meat Collections
             </h1>
 
-            <p
-              className={`${merriweather.className} mt-3 text-sm sm:text-base lg:text-lg text-black max-w-md`}
-            >
+            <p className="mt-4 text-sm sm:text-base lg:text-lg text-black max-w-md mx-auto sm:mx-0">
               Carefully sourced, hygienically prepared, and freshly cut to deliver
               premium quality meat you can trust every day.
             </p>
           </div>
 
-          {/* RIGHT: Image */}
-          <div className="w-full sm:w-6/6 h-[55vh] sm:h-[70vh] lg:h-[85vh] relative overflow-hidden">
+          {/* IMAGE */}
+          <div className="w-full sm:w-1/2 h-[45vh] sm:h-[60vh] lg:h-[75vh] flex items-center justify-center">
             <img
               src="/assets/gallery/gallery-main-1.png"
               alt="Fresh Meat Collection"
@@ -122,36 +115,26 @@ const Gallery: React.FC = () => {
               draggable={false}
             />
           </div>
-
-
-
-
-          {/* <div className="absolute inset-0 bg-[#e8e4df]/10"></div> */}
-          {/* Title */}
         </div>
 
-
-
-
-
-        <div className="relative w-full max-w-[1400px] h-[400px] mt-34 mb-24 flex items-center justify-center ">
-          {/* CARDS */}
+        {/* CAROUSEL */}
+        <div className="relative w-full max-w-[1400px] h-[380px] sm:h-[420px] mt-20 sm:mt-28 mb-20 sm:mb-28 mx-auto flex items-center justify-center px-4">
           <div className="relative w-full flex justify-center items-center h-full" style={{ perspective: 2000 }}>
-            {gallery.map((member, i) => (
+            {gallery.map((item, i) => (
               <div
                 key={i}
-                className="absolute bg-[#1f1f1f] rounded-2xl overflow-hidden border border-white/10 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] cursor-pointer"
+                className="absolute bg-[#1f1f1f] rounded-2xl overflow-hidden shadow-xl cursor-pointer"
                 onClick={() => updateCarousel(i)}
                 style={{
-                  width: 300,
-                  height: 420,
+                  width: "clamp(220px,22vw,300px)",
+                  height: "clamp(320px,30vw,420px)",
                   ...getCardStyle(i),
                 }}
               >
                 <img
-                  src={member.img}
+                  src={item.img}
                   alt={`Product ${i + 1}`}
-                  className="w-full h-full object-cover brightness-90"
+                  className="w-full h-full object-cover"
                   draggable={false}
                 />
               </div>
@@ -160,47 +143,23 @@ const Gallery: React.FC = () => {
 
           {/* ARROWS */}
           <button
-            onClick={prev}
-            aria-label="Previous"
-            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white sm:bg-[#970303] text-[#970303] sm:text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-lg sm:text-xl shadow-lg hover:scale-110 transition-all z-[50]"
+            onClick={() => updateCarousel(currentIndex - 1)}
+            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white sm:bg-[#970303] text-[#970303] sm:text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shadow-lg hover:scale-110 transition z-50"
           >
             <FaChevronLeft />
           </button>
+
           <button
-            onClick={next}
-            aria-label="Next"
-            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white sm:bg-[#970303] text-[#970303] sm:text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-lg sm:text-xl shadow-lg hover:scale-110 transition-all z-[50]"
+            onClick={() => updateCarousel(currentIndex + 1)}
+            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white sm:bg-[#970303] text-[#970303] sm:text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shadow-lg hover:scale-110 transition z-50"
           >
             <FaChevronRight />
           </button>
         </div>
 
-        {/* Background Glow */}
-        <div className="absolute w-[500px] h-[500px] rounded-full bg-[#00bfff] blur-[120px] opacity-10 top-[10%] left-[10%] animate-[float1_24s_ease-in-out_infinite_alternate]"></div>
-        <div className="absolute w-[500px] h-[500px] rounded-full bg-[#1f1f1f] blur-[120px] opacity-10 bottom-[10%] right-[10%] animate-[float2_30s_ease-in-out_infinite_alternate]"></div>
-
-        <style>{`
-        @keyframes float1 {
-          0% { transform: translate(10%,10%) rotate(0deg); }
-          100% { transform: translate(-10%,-10%) rotate(360deg); }
-        }
-        @keyframes float2 {
-          0% { transform: translate(-15%,5%) rotate(0deg); }
-          100% { transform: translate(15%,-5%) rotate(-360deg); }
-        }
-
-        @media (max-width: 640px) {
-          .relative > div[style*="perspective"] > div {
-            width: 250px !important;
-            height: 350px !important;
-          }
-        }
-      `}</style>
+        <Cta />
       </div>
-      <Cta />
     </Reveal>
-
-
   );
 };
 
