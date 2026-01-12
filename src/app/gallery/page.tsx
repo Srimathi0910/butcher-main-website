@@ -91,13 +91,12 @@ const Gallery: React.FC = () => {
   return (
     <Reveal>
       <div
-        className="relative flex flex-col items-center justify-center min-h-screen text-white overflow-hidden  select-none"
+        className="relative flex flex-col items-center justify-center min-h-screen text-white overflow-hidden  select-none px-6"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
 
-        <div className="w-full h-[60vh] sm:h-[80vh] relative top-4 overflow-hidden
-">
+        <div className="w-full h-[60vh] sm:h-[80vh] relative top-4 overflow-hidden">
           <img
             src="/assets/gallery/gallery-main-1.png"
             alt="Landing"
@@ -119,7 +118,7 @@ const Gallery: React.FC = () => {
 
         </div>
 
-        <div className="relative w-full max-w-[1400px] h-[400px] mt-24 mb-24 flex items-center justify-center">
+        <div className="relative w-full max-w-[1400px] h-[400px] mt-24 mb-24 flex items-center justify-center ">
           {/* CARDS */}
           <div className="relative w-full flex justify-center items-center h-full" style={{ perspective: 2000 }}>
             {gallery.map((member, i) => (
