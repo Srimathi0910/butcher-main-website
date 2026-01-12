@@ -50,7 +50,7 @@ const Navbar = () => {
                     <div>
                         <ul className='flex items-center gap-6 uppercase text-white'>
                             <li><Link href="/#about-us">About Us</Link></li>
-                            <li><Link href="/recipies">Recipies</Link></li>
+                            <li><Link href="/recipies">Recipes</Link></li>
                              <li><Link href="/gallery">Gallery</Link></li>
                             <li className='px-3 py-1 text-main-color bg-white rounded-full'><Link href="/#contact-us">Contact</Link></li>
                         </ul>
@@ -88,7 +88,7 @@ const Navbar = () => {
                                     <Link href={'/#about-us'} onClick={() => setMobileNav(false)}>About Us</Link>
                                 </li>
                                 <li>
-                                    <Link href={'/recipies'} onClick={() => setMobileNav(false)}>Recipies</Link>
+                                    <Link href={'/recipies'} onClick={() => setMobileNav(false)}>Recipes</Link>
                                 </li>
                                 <li>
                                     <Link href={'/gallery'} onClick={() => setMobileNav(false)}>Gallery</Link>

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { recipes } from "./data";
 import Reveal from "../_components/animation/Reveal";
+import { Cta } from"../_components";
 
 export default function RecipiesPage() {
   return (
@@ -15,7 +16,7 @@ export default function RecipiesPage() {
         </p>
       </Reveal>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 mb-20">
         {recipes.slice(0, 12).map((recipe, idx) => (
           <Reveal key={recipe.slug} delay={idx * 60}>
             <article className="rounded-md h-full overflow-hidden bg-main-color/5 border border-black/5">
@@ -35,6 +36,7 @@ export default function RecipiesPage() {
           </Reveal>
         ))}
       </div>
+      <Cta/>
     </section>
   );
 }

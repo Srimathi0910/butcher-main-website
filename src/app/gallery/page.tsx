@@ -5,6 +5,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { Merriweather } from "next/font/google";
 import Reveal from "../_components/animation/Reveal";
 import { gallery } from "./data";
+import { Cta } from"../_components";
 
 const merriweather = Merriweather({
   weight: ["400", "700", "900"],
@@ -88,80 +89,82 @@ const Gallery: React.FC = () => {
   const next = () => updateCarousel(currentIndex + 1);
 
   return (
-<Reveal>
-    <div
-      className="relative flex flex-col items-center justify-center min-h-screen text-white overflow-hidden  select-none"
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
-    >
-      
-      <div className="w-full h-[80vh] relative top-4 overflow-hidden">
-        <img
-          src="/assets/gallery/gallery-main-1.png"
-          alt="Landing"
-          className="w-full h-full object-cover"
-          draggable={false}
-        />
-        <div className="absolute inset-0 bg-black/40"></div>
-        {/* Title */}
-        
-        <div className="absolute inset-0 flex items-center justify-center">
-          
-          <h1
-            className={`${merriweather.className} text-[40px] sm:text-[56px] font-normal text-[#FFFFFF] text-center drop-shadow-[0_0_30px_rgba(151,3,3,0.4)]`}
-          >
-            OUR PRODUCTS
-          </h1>
-        </div>
-       
-      </div>
+    <Reveal>
+      <div
+        className="relative flex flex-col items-center justify-center min-h-screen text-white overflow-hidden  select-none"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
 
-      <div className="relative w-full max-w-[1400px] h-[400px] mt-24 mb-24 flex items-center justify-center">
-        {/* CARDS */}
-        <div className="relative w-full flex justify-center items-center h-full" style={{ perspective: 2000 }}>
-          {gallery.map((member, i) => (
-            <div
-              key={i}
-              className="absolute bg-[#1f1f1f] rounded-2xl overflow-hidden border border-white/10 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] cursor-pointer"
-              onClick={() => updateCarousel(i)}
-              style={{
-                width: 300,
-                height: 420,
-                ...getCardStyle(i),
-              }}
+        <div className="w-full h-[60vh] sm:h-[80vh] relative top-4 overflow-hidden
+">
+          <img
+            src="/assets/gallery/gallery-main-1.png"
+            alt="Landing"
+            className="w-full h-full object-cover object-left sm:object-center"
+            draggable={false}
+          />
+
+          <div className="absolute inset-0 bg-black/40"></div>
+          {/* Title */}
+
+          <div className="absolute inset-0 flex items-center justify-center">
+
+            <h1
+              className={`${merriweather.className} text-[40px] sm:text-[56px] font-normal text-[#FFFFFF] text-center drop-shadow-[0_0_30px_rgba(151,3,3,0.4)]`}
             >
-              <img
-                src={member.img}
-                alt={`Product ${i + 1}`}
-                className="w-full h-full object-cover brightness-90"
-                draggable={false}
-              />
-            </div>
-          ))}
+              OUR PRODUCTS
+            </h1>
+          </div>
+
         </div>
 
-        {/* ARROWS */}
-        <button
-          onClick={prev}
-          aria-label="Previous"
-          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white sm:bg-[#970303] text-[#970303] sm:text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-lg sm:text-xl shadow-lg hover:scale-110 transition-all z-[50]"
-        >
-          <FaChevronLeft />
-        </button>
-        <button
-          onClick={next}
-          aria-label="Next"
-          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white sm:bg-[#970303] text-[#970303] sm:text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-lg sm:text-xl shadow-lg hover:scale-110 transition-all z-[50]"
-        >
-          <FaChevronRight />
-        </button>
-      </div>
+        <div className="relative w-full max-w-[1400px] h-[400px] mt-24 mb-24 flex items-center justify-center">
+          {/* CARDS */}
+          <div className="relative w-full flex justify-center items-center h-full" style={{ perspective: 2000 }}>
+            {gallery.map((member, i) => (
+              <div
+                key={i}
+                className="absolute bg-[#1f1f1f] rounded-2xl overflow-hidden border border-white/10 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] cursor-pointer"
+                onClick={() => updateCarousel(i)}
+                style={{
+                  width: 300,
+                  height: 420,
+                  ...getCardStyle(i),
+                }}
+              >
+                <img
+                  src={member.img}
+                  alt={`Product ${i + 1}`}
+                  className="w-full h-full object-cover brightness-90"
+                  draggable={false}
+                />
+              </div>
+            ))}
+          </div>
 
-      {/* Background Glow */}
-      <div className="absolute w-[500px] h-[500px] rounded-full bg-[#00bfff] blur-[120px] opacity-10 top-[10%] left-[10%] animate-[float1_24s_ease-in-out_infinite_alternate]"></div>
-      <div className="absolute w-[500px] h-[500px] rounded-full bg-[#1f1f1f] blur-[120px] opacity-10 bottom-[10%] right-[10%] animate-[float2_30s_ease-in-out_infinite_alternate]"></div>
+          {/* ARROWS */}
+          <button
+            onClick={prev}
+            aria-label="Previous"
+            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white sm:bg-[#970303] text-[#970303] sm:text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-lg sm:text-xl shadow-lg hover:scale-110 transition-all z-[50]"
+          >
+            <FaChevronLeft />
+          </button>
+          <button
+            onClick={next}
+            aria-label="Next"
+            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white sm:bg-[#970303] text-[#970303] sm:text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-lg sm:text-xl shadow-lg hover:scale-110 transition-all z-[50]"
+          >
+            <FaChevronRight />
+          </button>
+        </div>
 
-      <style>{`
+        {/* Background Glow */}
+        <div className="absolute w-[500px] h-[500px] rounded-full bg-[#00bfff] blur-[120px] opacity-10 top-[10%] left-[10%] animate-[float1_24s_ease-in-out_infinite_alternate]"></div>
+        <div className="absolute w-[500px] h-[500px] rounded-full bg-[#1f1f1f] blur-[120px] opacity-10 bottom-[10%] right-[10%] animate-[float2_30s_ease-in-out_infinite_alternate]"></div>
+
+        <style>{`
         @keyframes float1 {
           0% { transform: translate(10%,10%) rotate(0deg); }
           100% { transform: translate(-10%,-10%) rotate(360deg); }
@@ -178,8 +181,10 @@ const Gallery: React.FC = () => {
           }
         }
       `}</style>
-    </div>
+      </div>
+      <Cta />
     </Reveal>
+    
 
   );
 };
