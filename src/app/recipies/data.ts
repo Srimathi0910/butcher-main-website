@@ -1,0 +1,161 @@
+export type Recipe = {
+	slug: string;
+	title: string;
+	description: string;
+	image: string;
+	ingredients: string[];
+	instructions: string[];
+	prepTime: string;
+	cookTime: string;
+	servings: number;
+};
+
+export const recipes: Recipe[] = [
+	{
+		slug: "spiced-lamb-chops",
+		title: "Spiced Lamb Chops",
+		description: "Juicy lamb chops marinated in warm spices and grilled to perfection.",
+		image: "/assets/recipies/recipies-img-1.png",
+		ingredients: [
+			"8 lamb chops",
+			"2 tbsp olive oil",
+			"2 tsp ground cumin",
+			"1 tsp smoked paprika",
+			"1 tsp garlic powder",
+			"Salt and pepper to taste",
+		],
+		instructions: [
+			"Combine oil and spices, rub over lamb.",
+			"Marinate 30 minutes.",
+			"Grill on medium-high 3–4 min per side.",
+			"Rest 5 minutes before serving.",
+		],
+		prepTime: "15 mins",
+		cookTime: "8 mins",
+		servings: 4,
+	},
+	{
+		slug: "garlic-herb-chicken",
+		title: "Garlic Herb Chicken",
+		description: "Tender chicken infused with garlic, lemon, and fresh herbs.",
+		image: "/assets/recipies/recipies-img-2.png",
+		ingredients: ["1 kg chicken pieces", "4 cloves garlic", "1 lemon", "2 tbsp olive oil", "Mixed herbs", "Salt"],
+		instructions: ["Mix marinade.", "Coat chicken.", "Bake 200°C for 30–35 mins.", "Broil 2 mins for color."],
+		prepTime: "10 mins",
+		cookTime: "35 mins",
+		servings: 4,
+	},
+	{
+		slug: "beef-kofta",
+		title: "Beef Kofta",
+		description: "Flavor-packed beef skewers perfect for grilling or pan-searing.",
+		image: "/assets/recipies/recipies-img-3.png",
+		ingredients: ["600 g minced beef", "1 onion, grated", "2 tbsp parsley", "1 tsp cumin", "1 tsp coriander", "Salt, pepper"],
+		instructions: ["Mix ingredients.", "Shape onto skewers.", "Grill 8–10 mins, turning."],
+		prepTime: "15 mins",
+		cookTime: "10 mins",
+		servings: 4,
+	},
+	{
+		slug: "tandoori-drumsticks",
+		title: "Tandoori Drumsticks",
+		description: "Yogurt-spiced chicken drumsticks roasted till smoky and tender.",
+		image: "/assets/recipies/recipies-img-4.png",
+		ingredients: ["8 drumsticks", "200 g yogurt", "2 tsp tandoori masala", "1 tsp ginger-garlic paste", "Salt"],
+		instructions: ["Marinate 2–4 hrs.", "Bake 200°C 35–40 mins.", "Char under grill briefly."],
+		prepTime: "10 mins",
+		cookTime: "40 mins",
+		servings: 4,
+	},
+	{
+		slug: "butter-beef-curry",
+		title: "Butter Beef Curry",
+		description: "Rich, creamy curry with tender beef and aromatic spices.",
+		image: "/assets/recipies/recipies-img-5.png",
+		ingredients: ["700 g beef cubes", "2 onions", "2 tomatoes", "Butter", "Cream", "Garam masala"],
+		instructions: ["Sear beef.", "Cook onions, tomatoes, spices.", "Simmer with beef until tender.", "Finish with butter and cream."],
+		prepTime: "20 mins",
+		cookTime: "60 mins",
+		servings: 6,
+	},
+	{
+		slug: "grilled-fish-chermoula",
+		title: "Grilled Fish with Chermoula",
+		description: "Zesty herb-marinade brings bright flavor to flaky fish.",
+		image: "/assets/recipies/recipies-img-6.png",
+		ingredients: ["4 fish fillets", "Parsley & coriander", "Garlic", "Lemon", "Olive oil", "Spices"],
+		instructions: ["Blend chermoula.", "Marinate 20 mins.", "Grill 3–4 mins per side."],
+		prepTime: "15 mins",
+		cookTime: "8 mins",
+		servings: 4,
+	},
+	{
+		slug: "roasted-goat-shoulder",
+		title: "Roasted Goat Shoulder",
+		description: "Slow-roasted goat shoulder with garlic and herbs.",
+		image: "/assets/recipies/recipies-img-7.png",
+		ingredients: ["1.5 kg goat shoulder", "Garlic", "Rosemary", "Olive oil", "Salt"],
+		instructions: ["Score and season.", "Roast low and slow at 160°C for 3–4 hrs.", "Rest 15 mins."],
+		prepTime: "15 mins",
+		cookTime: "3–4 hrs",
+		servings: 6,
+	},
+	{
+		slug: "peri-peri-wings",
+		title: "Peri-Peri Wings",
+		description: "Fiery and tangy wings baked until crisp.",
+		image: "/assets/recipies/recipies-img-8.png",
+		ingredients: ["1 kg wings", "Peri-peri sauce", "Garlic", "Lemon", "Salt"],
+		instructions: ["Marinate 1 hr.", "Bake 220°C 25–30 mins, turn halfway."],
+		prepTime: "10 mins",
+		cookTime: "30 mins",
+		servings: 4,
+	},
+	{
+		slug: "shepherds-pie",
+		title: "Shepherd's Pie",
+		description: "Comforting mince with creamy mash topping, baked golden.",
+		image: "/assets/recipies/recipies-img-9.png",
+		ingredients: ["700 g lamb mince", "Onion", "Carrot", "Peas", "Mash potatoes"],
+		instructions: ["Cook mince & veg.", "Top with mash.", "Bake 200°C 20–25 mins."],
+		prepTime: "25 mins",
+		cookTime: "45 mins",
+		servings: 6,
+	},
+	{
+		slug: "lemon-pepper-salmon",
+		title: "Lemon Pepper Salmon",
+		description: "Bright, peppery salmon fillets for a quick dinner.",
+		image: "/assets/recipies/recipies-img-10.png",
+		ingredients: ["4 salmon fillets", "Lemon", "Black pepper", "Butter", "Salt"],
+		instructions: ["Season generously.", "Pan-sear 3–4 mins per side.", "Finish with lemon butter."],
+		prepTime: "10 mins",
+		cookTime: "8 mins",
+		servings: 4,
+	},
+	{
+		slug: "smoky-beef-burgers",
+		title: "Smoky Beef Burgers",
+		description: "Juicy burgers with a hint of smoke and spice.",
+		image: "/assets/recipies/recipies-img-11.png",
+		ingredients: ["600 g beef mince", "1 tsp smoked paprika", "Onion", "Buns", "Toppings"],
+		instructions: ["Mix and form patties.", "Grill 3–4 mins per side.", "Assemble with toppings."],
+		prepTime: "15 mins",
+		cookTime: "10 mins",
+		servings: 4,
+	},
+	{
+		slug: "butter-chicken",
+		title: "Butter Chicken",
+		description: "Creamy classic with tender chicken in spiced tomato sauce.",
+		image: "/assets/recipies/recipies-img-12.png",
+		ingredients: ["700 g chicken", "Butter", "Cream", "Tomato puree", "Spices"],
+		instructions: ["Marinate chicken.", "Cook sauce.", "Simmer together until tender."],
+		prepTime: "20 mins",
+		cookTime: "35 mins",
+		servings: 4,
+	},
+];
+
+
+
