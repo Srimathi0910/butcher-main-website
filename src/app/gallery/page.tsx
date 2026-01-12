@@ -98,24 +98,25 @@ const Gallery: React.FC = () => {
         <div className="flex flex-col sm:flex-row items-center gap-8 pt-20">
 
           {/* LEFT: Text */}
-          <div className="w-full sm:w-1/2 text-center sm:text-left px-4">
+          <div className="w-full sm:w-1/2 text-center sm:text-left px-2 sm:px-4">
             <h1
-              className={`${merriweather.className} text-[40px] sm:text-[56px] font-normal text-[#5a0202]`}
+              className={`${merriweather.className} text-[32px] sm:text-[44px] lg:text-[56px] font-normal text-[#5a0202]`}
             >
               Fresh Meat Collections
             </h1>
           </div>
 
           {/* RIGHT: Image */}
-          <div className="w-full sm:w-7/8 h-[70vh] sm:h-[80vh] relative overflow-hidden">
+          <div className="w-full sm:w-6/6 h-[55vh] sm:h-[70vh] lg:h-[85vh] relative overflow-hidden">
             <img
               src="/assets/gallery/gallery-main-1.png"
               alt="Fresh Meat Collection"
-              className="w-full  h-full object-cover"
-
+              className="w-full h-full object-contain"
               draggable={false}
             />
           </div>
+
+
 
 
           {/* <div className="absolute inset-0 bg-[#e8e4df]/10"></div> */}
