@@ -91,19 +91,26 @@ const Gallery: React.FC = () => {
   return (
     <Reveal>
       <div
-        className="relative flex flex-col items-center justify-center min-h-screen text-white overflow-hidden  select-none px-6"
+        className="relative flex flex-col items-center justify-center min-h-screen text-white overflow-hidden  select-none"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
         <div className="flex flex-col sm:flex-row items-center gap-8 pt-20">
 
           {/* LEFT: Text */}
-          <div className="w-full sm:w-1/2 text-center sm:text-left px-2 sm:px-4">
+          <div className="w-full sm:w-1/2 text-center sm:text-center">
             <h1
               className={`${merriweather.className} text-[32px] sm:text-[44px] lg:text-[56px] font-normal text-[#5a0202]`}
             >
               Fresh Meat Collections
             </h1>
+
+            <p
+              className={`${merriweather.className} mt-3 text-sm sm:text-base lg:text-lg text-black max-w-md`}
+            >
+              Carefully sourced, hygienically prepared, and freshly cut to deliver
+              premium quality meat you can trust every day.
+            </p>
           </div>
 
           {/* RIGHT: Image */}
