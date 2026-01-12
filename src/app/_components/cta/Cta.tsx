@@ -47,21 +47,7 @@ const Cta = () => {
                   <Link href='tel:07424274823'><PrimaryButton text=' 07424 274823' /></Link>
                 </Reveal>
             </div>
-             
         </div>
-        <div className="w-full mt-12 aspect-video overflow-hidden rounded-md">
-  <Reveal delay={150}>
-    <video
-      className="w-full h-full object-cover"
-      src="/assets/cta/location.mp4"
-      autoPlay
-      loop
-      muted
-      playsInline
-    />
-  </Reveal>
-</div>
-
     </section>
   )
 }
