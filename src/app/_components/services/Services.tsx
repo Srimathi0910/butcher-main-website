@@ -35,7 +35,7 @@ const servicesData = {
             id: 3,
             title: "Groceries",
             description: "Description of service 1",
-            image: "/assets/services/service-img-3.png"
+            image: "/assets/services/service-img-7.png"
         },
         {
             id: 4,
